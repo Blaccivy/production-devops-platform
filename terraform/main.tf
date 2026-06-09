@@ -29,6 +29,10 @@ resource "aws_subnet" "public_1" {
 
   tags = {
     Name = "public-subnet-1"
+
+    "kubernetes.io/role/elb" = "1"
+
+    "kubernetes.io/cluster/${var.project_name}" = "shared"
   }
 }
 
@@ -41,6 +45,11 @@ resource "aws_subnet" "private_1" {
 
   tags = {
     Name = "private-subnet-1"
+
+    "kubernetes.io/role/internal-elb" = "1"
+
+    "kubernetes.io/cluster/${var.project_name}" = "shared"
+
   }
 }
 
@@ -54,6 +63,10 @@ resource "aws_subnet" "public_2" {
 
   tags = {
     Name = "public-subnet-2"
+
+    "kubernetes.io/role/elb" = "1"
+
+    "kubernetes.io/cluster/${var.project_name}" = "shared"
   }
 }
 
@@ -66,6 +79,11 @@ resource "aws_subnet" "private_2" {
 
   tags = {
     Name = "private-subnet-2"
+
+
+    "kubernetes.io/role/internal-elb" = "1"
+
+    "kubernetes.io/cluster/${var.project_name}" = "shared"
   }
 }
 
